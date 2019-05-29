@@ -2,19 +2,17 @@ package hdv.endpoint
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.http.MediaType
-import org.springframework.stereotype.Component
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.reactive.function.BodyInserters
 import org.springframework.web.reactive.function.server.ServerResponse
 import org.springframework.web.reactive.function.server.router
-import reactor.core.publisher.Flux
+import java.net.URL
 
 @Configuration
 class NonBlockingRouters {
     @Bean
     fun route() = router {
-        GET("/w00t") { it_ -> ServerResponse.ok().body(BodyInserters.fromObject("w00t")) }
+        GET("/w00t") { it_ ->
+            val result = URL("https://www.pietsweer.nl").readText()
+            ServerResponse.ok().body(BodyInserters.fromObject(result+ "aap")) }
     }
 }
