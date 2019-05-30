@@ -17,6 +17,8 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("ch.qos.logback:logback-classic")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

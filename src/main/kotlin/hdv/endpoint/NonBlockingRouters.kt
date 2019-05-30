@@ -9,10 +9,13 @@ import java.net.URL
 
 @Configuration
 class NonBlockingRouters {
+
     @Bean
-    fun route() = router {
-        GET("/w00t") { it_ ->
+    fun hetWeer() = router {
+        GET("/hetweer") { it_ ->
             val result = URL("https://www.pietsweer.nl").readText()
-            ServerResponse.ok().body(BodyInserters.fromObject(result+ "aap")) }
+            ServerResponse
+                .ok()
+                .body(BodyInserters.fromObject(result+ "aap")) }
     }
 }
