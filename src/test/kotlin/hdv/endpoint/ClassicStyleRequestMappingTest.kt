@@ -17,10 +17,8 @@ import org.springframework.test.web.reactive.server.expectBody
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 //@AutoConfigureRestDocs
 //@AutoConfigureWebTestClient
-class ClassicStyleRequestMappingTest {
+class ClassicStyleRequestMappingTest(@Autowired val webClient: WebTestClient) {
 
-    @Autowired
-    lateinit var webClient: WebTestClient
 
     @Test
     fun flux() {
