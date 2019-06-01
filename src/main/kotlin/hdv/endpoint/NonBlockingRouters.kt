@@ -12,7 +12,7 @@ class NonBlockingRouters {
 
     @Bean
     fun hetWeer() = router {
-        GET("/hetweer") { it_ ->
+        GET("/hetweer") {
             val result = URL("https://www.pietsweer.nl").readText()
             ServerResponse
                 .ok()
